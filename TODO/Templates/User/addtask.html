@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/CSS/addtask.css' %}"> 
+    <title>Add Task</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Add Task</h2>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+            <label for="completed">Completed:</label>
+            <input type="checkbox" id="completed" name="completed">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/CSS/todo.css' %}"> 
+
+    <title>Task Manager</title>
+   
+</head>
+<body>
+    <a href="{% url 'base:home' %}"><div id="header">TODO</div></a>
+    <div class="container">
+        <div class="header">
+            <h1>Task Manager</h1>
+            <a href="{% url 'base:addtask' %}"><button class="button">Add Task</button></a>
+        </div>
+        {% for task in tasks %}
+        <div class="task">
+            <div class="task-info">
+                <div>
+                    <h3>{{task.title}}</h3>
+                    <p>{{task.description}}</p>
+                </div>
+                <div class="task-actions">
+                    <a href="{% url 'base:edit_task' task.id %}"><button class="edit-button">Edit</button></a>
+                    <a href="{% url 'base:delete_task' task.id %}"><button class="delete-button">Delete</button></a>
+                    {% if task.completed %}
+                    <button class="complete-button" style="display:none;">Completed</button>
+                    <div class="message">
+                        <h1>Task completed</h1>
+                    </div>
+                    {% else %}
+                    <form method="post" action="{% url 'base:complete-task' task.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="complete-button" style="margin-top: 10px;">Complete</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- More tasks can be added dynamically here -->
+
+    </div>
+
+    <div class="user-info">
+        
+            <a href="{% url 'accounts:logout' %}"><button type="submit">Logout</button></a> 
+        
+    </div>
+</body>
+
+<style>
+    .message {
+        margin-top: 10px;
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        
+    }
+
+    .message h1 {
+        font-size: 24px;
+        color: #343a40;
+        margin-bottom: 10px;
+    }
+</style>
+
+
+</html>

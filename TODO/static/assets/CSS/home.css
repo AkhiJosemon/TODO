@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(226, 226, 226);
+}
+#header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #008CBA;
+    font-weight: bolder;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+button {
+    padding: 20px 40px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: all 0.3s ease; 
+    
+}
+#register-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+#login-button {
+    background-color: #008CBA; /* Blue */
+    color: white;
+}
+#go-button{
+    background-color: #008CBA; /* Blue */
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1); /* Scale the button on hover */
+}
+
+/* .centered-buttons {
+    text-align: center;
+    margin-top: 50px; /* Adjust this value as needed */
+
+
+/* Style the title */
+/* #title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px; /* Adjust this value as needed */

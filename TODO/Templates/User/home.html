@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/CSS/home.css' %}"> 
+    <title>TODO</title>
+</head>
+<body>
+    <a href="{% url 'base:home' %}"><div id="header">TODO</div></a>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <div class="button-container">
+        <a href="{% url 'base:todo' %}" ><button id="go-button">Let's Go</button></a>
+    </div>
+{% else %}
+    <div class="button-container">
+        <a href="{% url 'accounts:signUp' %}" ><button id="register-button">Register</button></a>
+        <a href="{% url 'accounts:login' %}" ><button id="login-button">Login</button></a>
+    </div>
+{% endif %}
+</body>
+</html>

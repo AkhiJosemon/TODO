@@ -1,0 +1,23 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/CSS/signup.css' %}"> 
+    <title>Signup</title>
+</head>
+<body>
+    <a href="{% url 'base:home' %}"><div id="header">TODO</div></a>
+    <h1>Signup</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Signup</button>
+    </form>
+</body>
+</html>
